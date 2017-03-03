@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC 
+	"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<!-- el 태그로 밸류 설정가능 expression -->
+	<definition name="t_el" template="/views/template.jsp">
+		<put-attribute name="title" expression="${title}" />
+		<put-attribute name="header" value="/views/header.jsp" />
+		<put-attribute name="main" expression="/views/${main}.jsp" />
+		<put-attribute name="footer" value="/views/footer.jsp" />
+	</definition>
+	<!-- template에도 el expression 가능 -->
+	<definition name="t_ttl" templateExpression="/views/${template}.jsp">
+		<put-attribute name="title" expression="${title}" />
+		<put-attribute name="header" value="/views/header.jsp" />
+		<put-attribute name="main" expression="/views/${main}.jsp" />
+		<put-attribute name="footer" value="/views/footer.jsp" />
+	</definition>
+	<!-- wildcard 로 밸류 설정 가능 -->
+	<definition name="tw_*/*" template="/views/template.jsp">
+		<put-attribute name="title" value="WildCARD" />
+		<put-attribute name="header" value="/views/header.jsp" />
+		<put-attribute name="main" value="/views/{1}/{2}.jsp" />
+		<put-attribute name="footer" value="/views/footer.jsp" />
+	</definition>
+
+</tiles-definitions>
+
+
